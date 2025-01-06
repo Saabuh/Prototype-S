@@ -9,7 +9,7 @@ namespace PlayerScripts
         IPlayerState HandleInput();
 
         //Called at every frame from the base player class
-        void Update();
+        void Update(PlayerController player);
 
         void Enter();
 

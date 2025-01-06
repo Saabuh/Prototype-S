@@ -11,7 +11,7 @@ namespace PlayerScripts
       {
 
           //change to standing state if no movement is detected
-          if (Input.GetAxisRaw("Horizontal") == 0 || Input.GetAxisRaw("Vertical") == 0)
+          if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
           {
               //change to standing state
               return new StandingState();
@@ -21,9 +21,12 @@ namespace PlayerScripts
           return null;
       }
 
-      public void Update()
+      public void Update(PlayerController player)
       {
-        
+
+          Vector2 movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+          player.transform.Translate(movement * (player.playerSpeed * Time.deltaTime));
+
       }
 
       public void Enter()

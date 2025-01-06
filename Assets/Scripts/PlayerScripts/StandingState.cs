@@ -20,9 +20,8 @@ namespace PlayerScripts
 
       }
 
-      public void Update()
+      public void Update(PlayerController player)
       {
-        
       }
 
       public void Enter()
