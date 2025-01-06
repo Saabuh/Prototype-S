@@ -21,7 +21,7 @@ namespace PlayerScripts
           return null;
       }
 
-      public void Update(PlayerController player)
+      public void Update(Player player)
       {
 
           Vector2 movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
