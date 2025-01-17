@@ -7,6 +7,10 @@ namespace Prototype_S
      */
     public class WeaponConfig : ScriptableObject
     {
+        public string weaponName;
+        public Sprite icon;
+        public int manaCost;
+        public float cooldown = ;
         
     }
 }
