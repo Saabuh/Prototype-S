@@ -20,6 +20,8 @@ namespace Prototype_S
         public void GenerateMap()
         {
             terrainMap.ClearAllTiles();
+            waterMap.ClearAllTiles();
+            
             float[,] noiseMap = Noise.GenerateNoiseMap(mapWidth, mapHeight, scale);
 
             for (int y = 0; y < mapHeight; y++)
