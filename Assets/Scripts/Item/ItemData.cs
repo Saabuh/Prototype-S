@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Prototype_S
 {
-   public abstract class Item : ScriptableObject
+   public abstract class ItemData : ScriptableObject
    {
        [Header("Basic Info")] 
        [SerializeField] private new string name = "New Item Name";

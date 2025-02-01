@@ -1,3 +1,4 @@
+using System.Text;
 using UnityEngine;
 
 namespace Prototype_S
@@ -5,12 +6,28 @@ namespace Prototype_S
     /*
      * Responsible for any kind of weapon config applied to a weapon.
      */
-    public class WeaponConfig : ScriptableObject
+    [CreateAssetMenu(fileName = "New Weapon Config", menuName = "Weapons/Weapon Config")]
+    public class WeaponData : ItemData
     {
-        public string weaponName;
-        public Sprite icon;
-        public int manaCost;
-        public float cooldown = ;
-        
+        [Header("Weapon Info")]
+        [SerializeField] private int manaCost = 0;
+        [SerializeField] private float cooldown = 0;
+        [SerializeField] private float damage = 0;
+        [SerializeField] private IAttackStrategy _attackStrategy;
+        [SerializeField] private GameObject projectilePrefab;
+
+        //getters
+        public IAttackStrategy AttackStrategy => _attackStrategy;
+
+        public override string GetItemDisplayText()
+        {
+            StringBuilder builder = new StringBuilder();
+
+            builder.Append(Name).AppendLine();
+            builder.Append("Max Stack: ").Append(MaxStack).AppendLine();
+            builder.Append("Sell Price: ").Append(SellPrice).Append(" Gold");
+
+            return builder.ToString();
+        }
     }
 }

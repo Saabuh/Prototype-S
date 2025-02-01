@@ -4,20 +4,21 @@ using UnityEngine;
 
 namespace Prototype_S
 {
-    public class Weapon : Item, IUseable
-
+    /*
+     * responsible for managing interactions and coordinating components.
+     */
+    public class Weapon : MonoBehaviour, IUseable
     {
-        public override string GetItemDisplayText()
+
+        [SerializeField] private WeaponData weaponData;
+        [SerializeField] private IAttackStrategy attackStrategy;
+
+        public Weapon(WeaponData weaponData)
         {
-            StringBuilder builder = new StringBuilder();
-
-            builder.Append(Name).AppendLine();
-            builder.Append("Max Stack: ").Append(MaxStack).AppendLine();
-            builder.Append("Sell Price: ").Append(SellPrice).Append(" Gold");
-
-            return builder.ToString();
+            this.weaponData = weaponData;
+            attackStrategy = weaponData.AttackStrategy;
         }
-
+        
         public void Use()
         {
             Debug.Log("Weapon has been used.");
