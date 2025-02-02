@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 namespace Prototype_S
 {
+    [Serializable]
     public struct ItemSlot
     {
         public ItemData itemData;

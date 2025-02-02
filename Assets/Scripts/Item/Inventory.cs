@@ -2,9 +2,18 @@ using UnityEngine;
 
 namespace Prototype_S
 {
+    [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory")]
     public class Inventory : ScriptableObject
     {
-        public ItemContainer itemContainer { get; } = new ItemContainer(20);
+
+        [SerializeField] private ItemSlot testItemSlot = new ItemSlot();
+        public ItemContainer ItemContainer { get; } = new ItemContainer(40);
+
+        [ContextMenu("Test adding ItemSlot")]
+        public void TestAddItemSlot()
+        {
+            ItemContainer.AddItem(testItemSlot);
+        }
 
     }
 }

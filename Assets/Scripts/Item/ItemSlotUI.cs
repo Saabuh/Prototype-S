@@ -1,5 +1,6 @@
 using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -19,12 +20,18 @@ namespace Prototype_S
         
         //properties
         private int SlotIndex { get; set; }
-        public ItemSlot ItemSlot => inventory.itemContainer.GetSlotByIndex(SlotIndex);
+        public ItemSlot ItemSlot => inventory.ItemContainer.GetSlotByIndex(SlotIndex);
 
         void Start()
         {
             SlotIndex = transform.GetSiblingIndex();
+            inventory.ItemContainer.OnItemsUpdated += UpdateSlotUI;
             UpdateSlotUI();
+        }
+
+        void Exit()
+        {
+            inventory.ItemContainer.OnItemsUpdated -= UpdateSlotUI;
         }
 
         private void UpdateSlotUI()
@@ -32,6 +39,7 @@ namespace Prototype_S
             if (ItemSlot.itemData == null)
             {
                 EnableSlotUI(false);
+                return;
             }
 
             EnableSlotUI(true);

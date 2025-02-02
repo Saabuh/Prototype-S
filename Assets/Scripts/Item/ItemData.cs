@@ -2,7 +2,9 @@ using UnityEngine;
 
 namespace Prototype_S
 {
-   public abstract class ItemData : ScriptableObject
+
+    [CreateAssetMenu(fileName = "New Item", menuName = "Item/Generic Item")]
+    public abstract class ItemData : ScriptableObject
    {
        [Header("Basic Info")] 
        [SerializeField] private new string name = "New Item Name";
@@ -18,5 +20,4 @@ namespace Prototype_S
 
        public abstract string GetItemDisplayText();
    }
-   
 }

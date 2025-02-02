@@ -9,15 +9,18 @@ namespace Prototype_S
 
         public ItemContainer(int size) => _itemSlots = new ItemSlot[size];
 
+        public event Action OnItemsUpdated = delegate { };
+        
         public ItemSlot GetSlotByIndex(int index) => _itemSlots[index];
 
-    public void AddItem(ItemSlot newItemSlot)
+        public void AddItem(ItemSlot newItemSlot)
         {
             for (int i = 0; i < _itemSlots.Length; i++)
             {
                 if (_itemSlots[i].itemData == null)
                 {
                     _itemSlots[i] = newItemSlot;
+                    OnItemsUpdated.Invoke();
                     return;
                 }
             }
