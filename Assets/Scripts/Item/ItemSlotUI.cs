@@ -29,11 +29,6 @@ namespace Prototype_S
             UpdateSlotUI();
         }
 
-        void Exit()
-        {
-            inventory.ItemContainer.OnItemsUpdated -= UpdateSlotUI;
-        }
-
         private void UpdateSlotUI()
         {
             if (ItemSlot.itemData == null)

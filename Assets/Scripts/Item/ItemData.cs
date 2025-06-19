@@ -2,8 +2,6 @@ using UnityEngine;
 
 namespace Prototype_S
 {
-
-    [CreateAssetMenu(fileName = "New Item", menuName = "Item/Generic Item")]
     public abstract class ItemData : ScriptableObject
    {
        [Header("Basic Info")] 

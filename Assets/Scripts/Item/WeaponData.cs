@@ -6,7 +6,7 @@ namespace Prototype_S
     /*
      * Responsible for any kind of weapon config applied to a weapon.
      */
-    [CreateAssetMenu(fileName = "New Weapon Config", menuName = "Item/Weapons/Weapon Config")]
+    [CreateAssetMenu(fileName = "New Weapon Config", menuName = "Item/Weapon")]
     public class WeaponData : ItemData
     {
         [Header("Weapon Info")]
